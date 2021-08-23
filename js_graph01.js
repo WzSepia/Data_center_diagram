@@ -332,7 +332,7 @@ function jsGraphRule(eleRoot) {
 			background-position: calc(50%) 50%;
 			background-size: auto;"></div>`
 		//图形实例
-		this.myChart = echarts.init(document.querySelector('.jsGraphRule'));
+		this.myChart = echarts5.init(document.querySelector('.jsGraphRule'));
 		this.myChart.showLoading();
 		//处理展示数据
 		this.setData(this.data);
