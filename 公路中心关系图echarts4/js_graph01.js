@@ -128,16 +128,17 @@ function jsGraphRule(eleRoot) {
 		//获取容器大小
 		let width = this.ele.offsetWidth;
 		let height = this.ele.offsetHeight;
-		let data_left_len = data.left.length;
-		let data_right_len = data.right.length;
-		let left_margin = (height / (data.left.length));
-		let right_margin = (height / (data.right.length));
+		let data_left_len = data.left && data.left.length > 0 ? data.left.length : 0;
+		let data_right_len = data.right && data.right.length > 0 ? data.right.length : 0;
+		let left_margin = (height / (data_left_len));
+		let right_margin = (height / (data_right_len));
 		//获取中位数
 		let middle_left = this.middle(data.left);
 		let middle_right = this.middle(data.right);
 		this.xAxisMax = width;
 		this.yAxisMax = height;
 		//整合数据
+		if (!data.center || data.center.length < 1) return;
 		data.center.x = width / 2;
 		data.center.y = height / 2;
 		data.center.value = [data.center.x, data.center.y];
@@ -181,8 +182,8 @@ function jsGraphRule(eleRoot) {
 					}
 				}
 				let o = {
-					source: data.center.name,
-					target: left.name,
+					source: data.center.id,
+					target: left.id,
 					lineStyle: left.lineStyle
 				};
 				let coord = {
@@ -219,8 +220,8 @@ function jsGraphRule(eleRoot) {
 					}
 				}
 				let o = {
-					source: right.name,
-					target: data.center.name,
+					source: right.id,
+					target: data.center.id,
 					lineStyle: right.lineStyle
 				};
 				let coord = {
