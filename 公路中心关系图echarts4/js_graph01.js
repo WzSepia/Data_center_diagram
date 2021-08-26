@@ -133,8 +133,8 @@ function jsGraphRule(eleRoot) {
 		let left_margin = (height / (data_left_len));
 		let right_margin = (height / (data_right_len));
 		//获取中位数
-		let middle_left = this.middle(data.left);
-		let middle_right = this.middle(data.right);
+		let middle_left = this.middle(data_left_len);
+		let middle_right = this.middle(data_right_len);
 		this.xAxisMax = width;
 		this.yAxisMax = height;
 		//整合数据
